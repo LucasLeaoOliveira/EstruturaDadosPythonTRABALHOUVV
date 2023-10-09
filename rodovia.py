@@ -3,19 +3,20 @@ from listaSimplesmenteEncadeada import SinglyLinkedListIterator
 
 
 class Rodovia:
-    def __init__(self, nome, cidades=None):
+    def __init__(self, nome):
         self.nome = nome
-        self.cidades = cidades
+        self.primeira_cidade = None  # Atributo para a primeira cidade da rodovia
 
     def adicionar_cidade(self, nome_cidade):
         nova_cidade = Cidade(nome_cidade)
         if self.primeira_cidade is None:
             self.primeira_cidade = nova_cidade
         else:
-            ultima_cidade = self.primeira_cidade
-            while ultima_cidade.proxima_cidade is not None:
-                ultima_cidade = ultima_cidade.proxima_cidade
-            ultima_cidade.proxima_cidade = nova_cidade
+            # Encontrar a última cidade na lista e definir sua próxima cidade
+            cidade_atual = self.primeira_cidade
+            while cidade_atual.proxima_cidade is not None:
+                cidade_atual = cidade_atual.proxima_cidade
+            cidade_atual.proxima_cidade = nova_cidade
 
     def listar_cidades(self):
         cidades = []
@@ -69,3 +70,19 @@ if lista_rodovias:
     print("Estrutura de dados populada a partir do arquivo de entrada:")
     lista_rodovias.printNode()  # Exibe as rodovias e suas cidades
 
+if __name__ == "__main__":
+    # Criando uma rodovia
+    br_101 = Rodovia("BR-101")
+    br_101.adicionar_cidade("Criciuma")
+    br_101.adicionar_cidade("Floripa")
+    br_101.adicionar_cidade("Sombrio")
+
+    # Listando cidades na rodovia
+    print("Cidades na BR-101:", br_101.listar_cidades())
+
+    # Adicionando mais cidades
+    br_101.adicionar_cidade("Porto Alegre")
+    br_101.adicionar_cidade("Curitiba")
+
+    # Listando cidades novamente
+    print("Cidades na BR-101 após adição de mais cidades:", br_101.listar_cidades())
