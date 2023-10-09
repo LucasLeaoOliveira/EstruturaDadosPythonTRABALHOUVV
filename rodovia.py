@@ -1,3 +1,4 @@
+from cidade import Cidade
 from listaSimplesmenteEncadeada import SinglyLinkedListIterator
 
 
@@ -5,6 +6,24 @@ class Rodovia:
     def __init__(self, nome, cidades=None):
         self.nome = nome
         self.cidades = cidades
+
+    def adicionar_cidade(self, nome_cidade):
+        nova_cidade = Cidade(nome_cidade)
+        if self.primeira_cidade is None:
+            self.primeira_cidade = nova_cidade
+        else:
+            ultima_cidade = self.primeira_cidade
+            while ultima_cidade.proxima_cidade is not None:
+                ultima_cidade = ultima_cidade.proxima_cidade
+            ultima_cidade.proxima_cidade = nova_cidade
+
+    def listar_cidades(self):
+        cidades = []
+        cidade_atual = self.primeira_cidade
+        while cidade_atual is not None:
+            cidades.append(cidade_atual.nome)
+            cidade_atual = cidade_atual.proxima_cidade
+        return cidades
 
 
 def rodoviasCidade(nomeCidade, lstRodovias):
