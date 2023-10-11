@@ -11,8 +11,8 @@ BR-020 SaoRaimundoNonato
 BR-317 RioBranco
 BR-222 Fortaleza
 BR-153 Palmas
-BR-262 Guarapari
+BR-262 RiodeJaneiro
 BR-040 RiodeJaneiro
 BR-060 Anapolis
 BR-020 Brasilia
-BR-101 SaoVicente
+BR-101 RiodeJaneiro

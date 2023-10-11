@@ -63,7 +63,7 @@ def rodoviasCidade(nomeCidade, lstRodovias):
 
 # Uso das funções na classe Rodovia
 rodovias = Rodovia.ler_arquivo('arquivo.txt')
-cidade_desejada = "BelaVista"
+cidade_desejada = "Vix"
 rodovias_que_passam_por_cidade = rodoviasCidade(cidade_desejada, rodovias)
 
 for rodovia in rodovias_que_passam_por_cidade:

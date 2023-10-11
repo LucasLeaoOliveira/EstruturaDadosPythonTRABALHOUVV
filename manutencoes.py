@@ -1,36 +1,36 @@
 from ArrayQueue import ArrayQueue
 
-class Manutenção:
-    def init(self, nomeRodovia, dataManutenção):
+class Manutencao:
+    def __init__(self, nomeRodovia, dataManutencao):
         self.nomeRodovia = nomeRodovia
-        self.dataManutencao = dataManutenção
+        self.dataManutencao = dataManutencao
 
 class fila:
-    def init(self):
-        self._filaManutenção = ArrayQueue()
+    def __init__(self):
+        self._filaManutencao = ArrayQueue()
 
-    def enfileirarManutenção(self, nomeRodovia, dataManutenção):
-        manutenção = Manutenção(nomeRodovia,dataManutenção)
-        self._filaManutenção.enqueue(manutenção)
+    def enfileirarManutencao(self, nomeRodovia, dataManutencao):
+        manutencao = Manutencao(nomeRodovia,dataManutencao)
+        self._filaManutencao.enqueue(manutencao)
 
     def desenfileirar(self):
-        if self._filaManutenção.is_empty():
+        if self._filaManutencao.is_empty():
             print ("Não há manutenções")
             return None
-        manutenção = self._filaManutenção.dequeue()
-        return manutenção.nomeRodovia, manutenção.dataManutenção
+        manutencao = self._filaManutencao.dequeue()
+        return manutencao.nomeRodovia, manutencao.dataManutencao
 
 
 queueMaintenance = fila()
 
-queueMaintenance.enfileirarManutenção ("BR-101", "22/08/2003")
-queueMaintenance.enfileirarManutenção ("BR-262", "20/07/2014")
-queueMaintenance.enfileirarManutenção ("BR-230", "17/07/2007")
-queueMaintenance.enfileirarManutenção ("BR-101", "29/03/2009")
-queueMaintenance.enfileirarManutenção ("BR-317", "13/09/2010")
-queueMaintenance.enfileirarManutenção ("BR-153", "22/05/2013")
-queueMaintenance.enfileirarManutenção ("BR-364", "10/08/2015")
-queueMaintenance.enfileirarManutenção ("BR-222", "14/10/2019")
 
-nomeRodovia, dataManutenção = queueMaintenance.desenfileirar()
-print ("Foi feita manutenção na rodovia", nomeRodovia, "na data", dataManutenção)
+queueMaintenance.enfileirarManutencao("BR-262", "20/07/2014")
+queueMaintenance.enfileirarManutencao("BR-230", "17/07/2007")
+queueMaintenance.enfileirarManutencao("BR-101", "29/03/2009")
+queueMaintenance.enfileirarManutencao("BR-317", "13/09/2010")
+queueMaintenance.enfileirarManutencao("BR-153", "22/05/2013")
+queueMaintenance.enfileirarManutencao("BR-364", "10/08/2015")
+queueMaintenance.enfileirarManutencao("BR-222", "14/10/2019")
+
+nomeRodovia, dataManutencao = queueMaintenance.desenfileirar()
+print ("Foi feita manutenção na rodovia", nomeRodovia, "na data", dataManutencao)
